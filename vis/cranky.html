@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.7.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0-beta.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.0.0"></script>
+
+</head>
+
+<body>
+    <h1>Who to Blame: <br> Bad Products or Cranky Customers?</h1>
+
+    <p>Some products get bad ratings in their reviews. It hurts but it's true.
+        As online shoppers we tend to jump to the conclusion that the bad ratings reflect those products' poor quality.
+        However, is that really the case? What if some of us really like to give low ratings and they happen to be the
+        only ones who reviewed those allegedly "bad products"?
+    </p>
+    <br>
+
+
+    <h2>Exploring Data</h2>
+    <select id="data">
+        <option value="./data/small.csv">small.csv</option>
+        <option value="./data/medium.csv">medium.csv</option>
+        <option value="./data/large.csv">large.csv</option>
+    </select>
+    <p>We start from the product side. With the online shopping data we have in hand,
+        let's order them by their ratings:
+    </p>
+    <div id="products"></div>
+    <p>We can see that poorly rated items' number of records may vary.
+        If the item recieves numerous bad ratings, it is probably a bad product.
+        However, if there's only one or two ratings and all of them are from cranky customers,
+        the product might actually be a victim.
+    </p>
+    <p>In future steps we will focus on these short, red/yellow bars as they are potential "victims".</p>
+    <br><br>
+
+
+    <p>Now it's time to find out who are hardly satisfied. In other words,
+        we are looking for reviewers who rate many but rate lowly:
+    </p>
+    <div id="reviewers"></div>
+    <p>We will filter out everything else but leave the tall, yellow bars.</p>
+
+    <br><br>
+    <h2>Comprehending Data</h2>
+    <p>According to the reasoning in the previous section, we filter the data based on the following criteria:</p>
+    <ol>
+        <li>Filter out items that have good ratings (avg. rating > 2)</li>
+        <li>Filter out reviewers who gives good raitngs on average (avg. rating > 2)</li>
+        <li>Eliminate items that are considered bad by a number of people (rating count > 3)</li>
+        <li>Leave reviewers who like to give low ratings (rating count > 3)</li>
+    </ol>
+    <p>Once we narrow down the collection, we can visualize the data using a heatmap:</p>
+    <div id="heatmap"></div>
+    <p>Each rectangle represents a rating of a product by a reviewer. The color of the rectangle
+        corresponds to the average rating of the reviewer. With this visualization we can start to
+        identify some of the products whose ratings are heavily influenced by biased reviewers.
+        Products with only one deep red mark on its row suffer the most from these negative ratings,
+        as the only ratings dictate the overall rating of the product.
+    </p><br>
+
+    <h2>Takeaway</h2>
+    <p>It is important that E-Commerce platforms take notice of this phenomenon. Their search
+        algorithm need to account the fact that many lowly rated products with few comments
+        are not necessarily inferior products. It should look for other factors, such as the number
+        of comments, or whether the product is commented by biased users.
+    </p>
+    <script src="./script.js"></script>
+</body>

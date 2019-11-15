@@ -1,0 +1,20 @@
+/* @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap'); */
+
+body{
+    /* font-family: 'Raleway', sans-serif; */
+    /* width: 70%; */
+    max-width: 800px;
+    padding: 50px;
+}
+
+#products{
+    width: 90%;
+    height: 60%;
+    /* display: none; */
+}
+#reviewers{
+    /* display: none; */
+}
+#heatmap{
+    /* display: none; */
+}
