@@ -18,3 +18,7 @@ body{
 #heatmap{
     /* display: none; */
 }
+
+#data{
+    width: 200px;
+}
