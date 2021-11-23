@@ -1,4 +1,4 @@
-### A space to showcase my stuff
+### A simple visual essay on Amazon product ratings
 [hosted with GitHub Pages](https://thealmightyhelix.github.io/mirage/)
 
 Credits:
